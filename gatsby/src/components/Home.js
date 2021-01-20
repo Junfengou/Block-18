@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
 import Block18 from "./Block18"
-import Logo from "./Logo"
 
 function Home() {
     return (
@@ -56,6 +55,7 @@ const Wrapper = styled.div`
         color: white;
         font-size: 3rem;
         text-align: center;
+        font-size: clamp(20px, 5vw, 28px);
    }
     /* nav {
         grid-row: 2 / -3;
@@ -107,6 +107,7 @@ const Wrapper = styled.div`
 
         .moto {
             grid-row:  2/ -2;
+            margin-top: 10rem;
         }
 
         /* nav {

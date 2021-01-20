@@ -93,6 +93,13 @@ const LogoStyles = styled.div`
         align-self: center;
     }
 
+    @media(max-width: 800px)
+    {
+        .letter{
+            font-size: 2.5em;
+        }
+    }
+
     
 `
 

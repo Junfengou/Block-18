@@ -22,9 +22,40 @@ function Options() {
                 
             </div>
             <div className="options">
-            <div className="cardZero">cardZero</div>
-            <div className="cardOne">cardOne</div>
-            <div className="cardTwo">cardTwo</div>
+            <div className="cardZero">
+
+                <div className="card">
+                    <div className="card__title">
+                        <h2>Free high fives</h2>
+                        <h4>served daily</h4>
+                    </div>
+                    <p>Things get hoppin' around lunchtime. We suggest checking out our menu before you come in.</p>
+                    <h4>SEE MENU</h4>
+                </div>
+            </div>
+
+            <div className="cardOne">
+            <div className="card">
+                    <div className="card__title">
+                        <h2>Roll up</h2>
+                        <h4>your sleeves</h4>
+                    </div>
+                    <p>Our street-style food is bold, imaginative, and deliciously messy. Grab some napkins and eat up.</p>
+                    <h4>SEE LOCATION</h4>
+                </div>
+            </div>
+
+            <div className="cardTwo">
+            <div className="card">
+                    <div className="card__title">
+                        <h2>real</h2>
+                        <h4>local food</h4>
+                    </div>
+                    <p>We use locally sourced ingredients, avoid preservatives whenever possible, and offer vegan-friendly dishes.</p>
+                    <h4>ABOUT US</h4>
+                </div>
+            </div>
+
             </div>
             </div>
         </OptionStyles>
@@ -45,7 +76,7 @@ const OptionStyles = styled.div`
         display: grid;
         grid-template-rows: 1fr 2fr;
         grid-template-columns: 1fr;
-        border: solid red;
+        /* border: solid red; */
         max-width: 1000px;
         height: 90%;
         justify-content: center;
@@ -55,16 +86,17 @@ const OptionStyles = styled.div`
     .specials {
         grid-row: span 1;
         border: solid 2px var(--lightblack);
-        border-radius: 10px;
+        /* border-radius: 10px; */
+        /* border: solid blue; */
         display: grid;
         grid-template-areas: 
         "hero cta1"
         "hero cta2";
         /* grid-template-columns: 250px 1fr;
         grid-template-rows: 1fr 1fr; */
-        grid-template-columns: repeat(2, minmax(100px, 200px 1fr));
-        grid-template-rows: repeat(2, minmax(100px, 1fr 100px));
-        margin: 6rem;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 200px 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(100px, 1fr 100px));
+        margin-bottom: 2rem;
         background: white;
         
         .specials_picture{
@@ -96,8 +128,9 @@ const OptionStyles = styled.div`
             grid-template-areas: 
             "card0 card1 card2"
             "card0 card1 card2";
-            grid-template-columns: repeat(3, minmax(100px, 1fr));
-            grid-template-rows: repeat(2, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 2.5rem;
             justify-items: center;
             align-items: center;
             list-style: none;
@@ -114,18 +147,44 @@ const OptionStyles = styled.div`
             grid-area: card2;
         }
 
-        
+        .card {
+            border: solid 3px var(--lightblack);
+            width: 100%;
+            height: 40rem;
+            display: grid;
+            grid-template-rows: repeat(3, minmax(100px, 1fr));
+            justify-items: center;
+            align-items: center;
+            background: white;
+
+            p {
+                font-size: clamp(12px, 5vw, 18px);
+                padding: 2rem;
+            }
+        }
+
+        .card__title {
+            text-transform: uppercase;
+            text-align: center;
+        }
        
         
     }
 
-    @media(max-width:700px)
+    @media(max-width:800px)
     {
         .specials {
         grid-template-areas: 
         "hero "
         "cta1"
         "cta2";
+        }
+
+        .options {
+            grid-template-areas: 
+            "card0" 
+            "card1" 
+            "card2";
         }
     }
 `

@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     --yellow: #ffc600;
     --white: #fff;
     --grey: #efefef;
+    --lightblack: rgb(32, 33, 38);
   }
   html {
     /* background-image: url(${bg}); */
@@ -68,9 +69,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   hr {
-    border: 0;
-    height: 8px;
-    background-image: url(${stripes});
+    width: 5rem;
     background-size: 1500px;
   }
 

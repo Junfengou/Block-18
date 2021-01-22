@@ -129,16 +129,3 @@ function Block18() {
 
 export default Block18
 
-/*
-<span className="block">
-                    <span className="letter B">B</span>
-                    <span className="letter l">l</span>
-                    <span className="letter o">o</span>
-                    <span className="letter c">c</span>
-                    <span className="letter k">k</span>
-                    <span className="letter 1">1</span>
-                    <span className="letter 8">8</span>
-                </span>
-                <span className="est">EST 1994</span>
-
-*/

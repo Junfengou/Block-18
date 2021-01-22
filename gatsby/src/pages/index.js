@@ -1,6 +1,6 @@
 import React from 'react'
-import Home from "../components/Home"
-import Options from "../components/Options"
+import Home from "../components/Home/Home"
+import Options from "../components/Home/Options"
 
 function index() {
     return (

@@ -1,14 +1,20 @@
 import React from 'react'
-import Mahi from "../../images/mahi.jpg"
+import Norris from "../../images/norris.png"
+import Img from "gatsby-image"
 import styled from "styled-components";
 
-function Options() {
+function Options({burgers}) {
+    const burger = burgers.nodes[0].image.asset.fluid;
+    // console.log(burger)
     return (
         <OptionStyles>
+            <Img fluid={burger}  alt="grg"/>
             <div className="wrapper">
             <div className="specials">
                 <div className="specials_picture">
-                    <img src={Mahi} alt="mahi" />
+                    <img src={Norris} alt="mahi" />
+                    {/* <Img fluid={burger.image.asset.fluid} alt="burger" /> */}
+                    {/* <Img fluid={burger} alt="burger"/> */}
                 </div>
 
                 <div className="specials__tag">
@@ -98,12 +104,12 @@ const OptionStyles = styled.div`
         grid-template-rows: repeat(auto-fit, minmax(100px, 1fr 100px));
         margin-bottom: 2rem;
         background: white;
+        padding: 2rem;
         
         .specials_picture{
             grid-area: hero;
             justify-self: center;
             align-self: center; 
-            margin-left: 2rem;
         }
 
         .specials__tag {

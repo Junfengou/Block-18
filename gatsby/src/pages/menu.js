@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 
 function menu({ data: { burgers } }) {
     const burgerList = burgers.nodes;
-    console.log("burgers", burgerList)
     return (
         <>
         <MenuWrapper >

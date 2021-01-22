@@ -4,12 +4,11 @@ import Img from 'gatsby-image';
 
 
 function Menu({ burger }) {
-    console.log("burgers", burger)
-    // console.log(description)
+
     return (
         <PizzaStyles>
             <div className="imag">
-                <Img fluid={burger.image.asset.fluid} alt="woah" />
+                <Img fluid={burger.image.asset.fluid} alt={burger.name} />
                 {/* <p>image live here</p> */}
             </div>
             <div className="description">

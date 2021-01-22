@@ -4,6 +4,8 @@ import useForm from "../utils/useForm"
 import OrderStyles from "../styles/OrderStyles"
 import { graphql } from 'gatsby'
 import OrderItem from "../components/Order/OrderItem"
+import useBurger from "../utils/useBurger"
+import BurgerCartItem from "../components/Order/BurgerCartItem"
 
 
 const OrderItemStyles = styled.div`
@@ -41,6 +43,8 @@ function order({data}) {
         email: ''
     })
 
+    const { order, addToOrder, removeOrder } = useBurger({ burgers, values: values })
+
     return (
         <form>
                 <fieldset>
@@ -61,14 +65,20 @@ function order({data}) {
                         <OrderItemStyles>
                             {burgers.map(burger => (
                                 <div key={`burger - ${burger._id}`}>
-                                    <OrderItem burger={burger} />
+                                    <OrderItem burger={burger} addToOrder={addToOrder} />
                                 </div>
                             ))}
                         </OrderItemStyles>
                     </fieldset>
 
 
-                    <fieldset><legend>Cart</legend></fieldset>
+                    <fieldset>
+                        <legend>Cart</legend>
+                        <OrderItemStyles>
+                            <BurgerCartItem order={order} burgers={burgers} removeOrder={removeOrder} />
+                        </OrderItemStyles>
+                        
+                    </fieldset>
             </OrderStyles>
 
             <fieldset><legend>Total</legend></fieldset>

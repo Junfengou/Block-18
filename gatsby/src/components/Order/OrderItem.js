@@ -2,35 +2,10 @@ import React from 'react'
 import styled from "styled-components"
 import Img from "gatsby-image"
 import formatMoney from "../../utils/formatMoney"
-
-const BurgerItemStyles = styled.div`
-    /* border: solid blue; */
-    display: grid;
-    grid-template-areas: 
-    "pic    burgerName"
-    "pic    price";
-    grid-template-columns: 350px 200px;
-    /* grid-template-rows: 1fr 1fr; */
-    grid-template-rows: subgrid;
+import BurgerItemStyles from "../../styles/BurgerItemStyles"
 
 
-    .pic {
-        grid-area: pic;
-        
-    }
-
-    .name {
-        grid-area: burgerName;
-        margin-left: 2rem;
-    }
-
-    .price {
-        grid-area: price;
-        margin-left: 2rem;
-    }
-`
-
-function OrderItem({burger}) {
+function OrderItem({burger, addToOrder} ) {
     return (
         <BurgerItemStyles>
 
@@ -44,7 +19,7 @@ function OrderItem({burger}) {
             </div>
 
             <div className="price">
-                <button>Add to cart</button>
+                <button type="button" onClick={() => addToOrder({id: burger._id})}>Add to cart</button>
             </div>
         </BurgerItemStyles>
     )

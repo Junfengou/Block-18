@@ -16,7 +16,7 @@ function Menu({ burger }) {
                 <hr />
                 <p>{burger.description}</p>
             </div>
-            <button>Add to order</button>
+            <button type="button">Add to order</button>
         </PizzaStyles>
     )
 }

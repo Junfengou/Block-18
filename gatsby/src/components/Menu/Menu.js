@@ -12,7 +12,7 @@ function Menu({ burger }) {
                 {/* <p>image live here</p> */}
             </div>
             <div className="description">
-                <h3>{burger.name}</h3>
+                <h3 className="mark" >{burger.name}</h3>
                 <hr />
                 <p>{burger.description}</p>
             </div>
@@ -37,9 +37,8 @@ const PizzaStyles = styled.div`
       /* border: solid red; */
       padding: 2rem;
   }
-
-  h3,
-  p {
+  
+   p {
     margin: 0;
     text-align: center;
   }

@@ -28,7 +28,8 @@ const Typography = createGlobalStyle`
     background: var(--yellow);
     padding: 0 2px 2px 2px;
     margin: 0;
-    display: inline;
+    display: flex;
+    justify-content: center;
     line-height: 1;
   }
 

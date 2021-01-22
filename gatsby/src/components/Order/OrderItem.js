@@ -19,7 +19,7 @@ function OrderItem({burger, addToOrder} ) {
             </div>
 
             <div className="price">
-                <button type="button" onClick={() => addToOrder({id: burger._id})}>Add to cart</button>
+                <button type="button" onClick={() => addToOrder({id: burger._id, price: burger.price})}>Add to cart</button>
             </div>
         </BurgerItemStyles>
     )

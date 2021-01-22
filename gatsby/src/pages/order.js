@@ -6,6 +6,8 @@ import { graphql } from 'gatsby'
 import OrderItem from "../components/Order/OrderItem"
 import useBurger from "../utils/useBurger"
 import BurgerCartItem from "../components/Order/BurgerCartItem"
+import formatMoney from '../utils/formatMoney'
+import calculateOrderTotal from "../utils/calculateOrderTotal"
 
 
 const OrderItemStyles = styled.div`
@@ -81,7 +83,10 @@ function order({data}) {
                     </fieldset>
             </OrderStyles>
 
-            <fieldset><legend>Total</legend></fieldset>
+            <fieldset>
+                <legend>Total</legend>
+                <h3>Your total is: {formatMoney(calculateOrderTotal(order, burgers))}</h3>
+                </fieldset>
         </form>
     )
 }

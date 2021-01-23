@@ -95,7 +95,7 @@ const LogoStyles = styled.div`
 
     .est {
         font-size: 2.5rem;
-        margin-left: 15rem;
+        margin-left: 6rem;
         color: white;
         align-self: center;
     }
@@ -115,7 +115,7 @@ const LogoStyles = styled.div`
         .est {
         font-size: 2rem;
         /* margin-left: 15rem; */
-        margin-left: 9rem;
+        margin-left: 5rem;
         color: white;
         align-self: center;
         }
@@ -136,7 +136,7 @@ const LogoStyles = styled.div`
         .est {
         font-size: 1.7rem;
         /* margin-left: 15rem; */
-        margin-left: 9rem;
+        margin-left: 5rem;
         color: white;
         align-self: center;
         }

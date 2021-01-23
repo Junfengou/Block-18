@@ -6,7 +6,7 @@ function Banner() {
     return (
         <BannerStyle>
             <div className="box">
-                <h1>Cooking is about creating something delicious for someone else</h1>
+                <h1>Cooking is about <span className="hightlight">creating</span> something <span className="hightlight">delicious</span> for someone else</h1>
                 <p>- Ayumi Komura</p>
             </div>
         </BannerStyle>
@@ -37,6 +37,10 @@ const BannerStyle = styled.div`
         bottom: 0px;
         right: 0px;
         opacity: 0.4;
+    }
+
+    .hightlight{ 
+        color: var(--red);
     }
 
     .box {

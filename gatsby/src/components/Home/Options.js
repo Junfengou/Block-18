@@ -3,6 +3,9 @@ import Norris from "../../images/norris.png"
 import Img from "gatsby-image"
 import styled from "styled-components";
 import { Link } from "gatsby"
+import Cinna from "../../images/cinna.png"
+import Bird from "../../images/bird.png"
+import Bites from "../../images/bites.png"
 
 function Options({burgers}) {
     const burger = burgers.nodes[0].image.asset.fluid;
@@ -100,8 +103,6 @@ const OptionStyles = styled.div`
     .specials {
         grid-row: span 1;
         border: solid 2px var(--lightblack);
-        /* border-radius: 10px; */
-        /* border: solid blue; */
         display: grid;
         grid-template-areas: 
         "hero cta1"
@@ -153,15 +154,53 @@ const OptionStyles = styled.div`
 
         .cardZero {
             grid-area: card0;
-            
+            position: relative;
+
+            &::before {
+                content: '';
+                background: url(${Bites}) center no-repeat;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                right: 0px;
+                opacity: 0.2;
+                z-index: 1;
+            }
         }
 
         .cardOne {
             grid-area: card1;
+            position: relative;
+
+            &::before {
+                content: '';
+                background: url(${Bird}) center no-repeat;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                right: 0px;
+                opacity: 0.2;
+                z-index: 1;
+            }
         }
 
         .cardTwo {
             grid-area: card2;
+            position: relative;
+
+            &::before {
+                content: '';
+                background: url(${Cinna}) center no-repeat;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                right: 0px;
+                opacity: 0.2;
+                z-index: 1;
+            }
         }
 
         .card {
@@ -176,8 +215,10 @@ const OptionStyles = styled.div`
             
 
             p {
-                font-size: clamp(12px, 5vw, 18px);
+                font-size: clamp(12px, 5vw, 20px);
+                text-align: center;
                 padding: 2rem;
+                z-index: 2;
             }
         }
 

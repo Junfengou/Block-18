@@ -5,11 +5,18 @@ const LogoStyles = styled.div`
     /* border: solid  red; */
     height: 20rem;
     width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .year {
+        color: var(--red);
+    }
 
     .inner {
         display: flex;
         flex-direction: column;
-        border: 3px solid white;
+        border: 1px solid white;
         height: 20rem;
         width: 20rem;
         justify-content: space-evenly;
@@ -93,13 +100,47 @@ const LogoStyles = styled.div`
         align-self: center;
     }
 
-    @media(max-width: 800px)
+    @media(max-width: 900px)
     {
+        .inner {
+            border: 1px solid white;
+            height: 15rem;
+            width: 15rem;
+            }
+
         .letter{
-            font-size: 2.5em;
+            font-size: 2em;
+        }
+
+        .est {
+        font-size: 2rem;
+        /* margin-left: 15rem; */
+        margin-left: 9rem;
+        color: white;
+        align-self: center;
         }
     }
 
+    @media(max-width: 400px)
+    {
+        .inner {
+            border: 1px solid white;
+            height: 13rem;
+            width: 13rem;
+            }
+
+        .letter{
+            font-size: 1.7em;
+        }
+
+        .est {
+        font-size: 1.7rem;
+        /* margin-left: 15rem; */
+        margin-left: 9rem;
+        color: white;
+        align-self: center;
+        }
+    }
     
 `
 
@@ -119,7 +160,7 @@ function Block18() {
                     <span className="letter i">1</span>
                     <span className="letter e">8</span>
                 </span>
-                    <span className="est">EST 1994</span>
+                    <span className="est">EST <span className="year">1994</span></span>
                  </h1>
             </div>
         </LogoStyles>

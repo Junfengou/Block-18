@@ -13,27 +13,34 @@ const OrderItemStyles = styled.div`
 	/* border: solid red; */
 	display: grid;
 	grid-template-columns: repeat(1, minmax(100px, 1000px));
-	grid-auto-rows: 300px auto;
+	grid-auto-rows: 200px 1fr;
 	/* grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); */
 	gap: 2rem;
 	justify-items: center;
 	margin-top: 2rem;
 	overflow: auto;
-`;
 
-const CustomerInfoStyles = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	label {
-		margin-right: 2rem;
+	@media(max-width: 700px) {
+		grid-auto-rows: 170px 1fr;
+		overflow: auto;
 	}
 
-	input {
-		margin-right: 10rem;
+	@media(max-width: 470px) {
+		grid-auto-rows: 125px 1fr;
+		overflow: auto;
 	}
 `;
+
+const CustomerFormStyles = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+	/* grid-template-rows: 1fr 1fr; */
+
+	.inputForm {
+		display: grid;
+		justify-self: center;
+	}
+`
 
 const SubmitOrderStyles = styled.div`
 	display: flex;
@@ -68,9 +75,10 @@ function order({ data }) {
 
 	return (
 		<form onSubmit={submitOrderForm}>
+			<CustomerFormStyles>
 			<fieldset disabled={loading}>
 				<legend className="mark">Customer information</legend>
-				<CustomerInfoStyles>
+				<div className="inputForm">
 					<label htmlFor="name">name</label>
 					<input
 						type="text"
@@ -88,8 +96,9 @@ function order({ data }) {
 						value={values.email}
 						onChange={updateValue}
 					/>
-				</CustomerInfoStyles>
+					</div>
 			</fieldset>
+			</CustomerFormStyles>
 
 			<OrderStyles>
 				<fieldset disabled={loading}>

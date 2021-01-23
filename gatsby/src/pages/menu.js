@@ -43,17 +43,17 @@ const MenuGridStyles = styled.div`
   /* grid-template-columns: repeat(2, minmax(300px, 500px)); */
   grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
   /* grid-template-rows: repeat(2, minmax(300px, 1fr)); */
-  grid-auto-rows: 500px auto auto;
+  grid-auto-rows: 500px 500px 500px;
   justify-content: center;
   align-items: center;
-  margin-top: 7em;
+  margin-top: 4em;
   gap: 10rem;
 
   
 
-  @media(max-width:500px)
+  @media(max-width:900px)
   {
-      
+    grid-auto-rows: 450px 450px 450px;
   }
 `;
 

@@ -22,7 +22,7 @@ function BurgerCartItem({ order, removeOrder }) {
 									removeOrder(index);
 								}}
 							>
-								&times;
+								remove
 							</button>
 						</div>
 					</BurgerItemStyles>

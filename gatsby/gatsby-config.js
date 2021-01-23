@@ -31,6 +31,14 @@
                 token: process.env.SANITY_TOKEN,
               },
             },
+            {
+              resolve: `gatsby-source-stripe`,
+              options: {
+                objects: ["Price"],
+                secretKey: 'sk_test_51I5w86L6WESAJmN2HC1h13HJAuk1b2lkBPHElBmUZ3Rv3wp9Rim13NlbAYGmvXN0HsElIBM4MQEY739yES8i7r7p00ouYgCbuL',
+                downloadFiles: false,
+              },
+            }
           ],
     }
     

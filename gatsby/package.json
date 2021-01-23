@@ -23,6 +23,7 @@
     }
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.11.0",
     "babel-plugin-styled-components": "^1.11.1",
     "dotenv": "^8.2.0",
     "gatsby": "^2.24.63",
@@ -30,6 +31,7 @@
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-sanity": "^6.0.4",
+    "gatsby-source-stripe": "^3.2.1",
     "isomorphic-fetch": "^2.2.1",
     "netlify-cli": "^2.62.0",
     "netlify-lambda": "^2.0.1",

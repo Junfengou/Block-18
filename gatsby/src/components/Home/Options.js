@@ -18,7 +18,7 @@ function Options({burgers}) {
                 </div>
 
                 <div className="specials__tag">
-                    <h2>Daily Special</h2>
+                    <h2><span className="daily">Daily Special</span></h2>
                     <p>We serve a new special every day. Head over to Facebook and see what we're serving today!</p>
                 </div>
 
@@ -32,10 +32,10 @@ function Options({burgers}) {
 
                 <div className="card">
                     <div className="card__title">
-                        <h2>Free high fives</h2>
-                        <h4>served daily</h4>
+                        <h2>Roll up</h2>
+                        <h4>your sleeves</h4>
                     </div>
-                    <p>Things get hoppin' around lunchtime. We suggest checking out our menu before you come in.</p>
+                    <p>Our street-style food is bold, imaginative, and deliciously messy. Grab some napkins and eat up.</p>
                     <Link to="/menu"><h4 className="mark">SEE MENU</h4></Link>
                 </div>
             </div>
@@ -43,10 +43,10 @@ function Options({burgers}) {
             <div className="cardOne">
             <div className="card">
                     <div className="card__title">
-                        <h2>Roll up</h2>
-                        <h4>your sleeves</h4>
+                    <h2>real</h2>
+                        <h4>local food</h4>
                     </div>
-                    <p>Our street-style food is bold, imaginative, and deliciously messy. Grab some napkins and eat up.</p>
+                    <p>We use locally sourced ingredients, avoid preservatives whenever possible, and offer vegan-friendly dishes.</p>
                     <Link to="/about"><h4 className="mark">ABOUT US</h4></Link>
                 </div>
             </div>
@@ -54,8 +54,8 @@ function Options({burgers}) {
             <div className="cardTwo">
             <div className="card">
                     <div className="card__title">
-                        <h2>real</h2>
-                        <h4>local food</h4>
+                        <h2>Free High Fives</h2>
+                        <h4>all around</h4>
                     </div>
                     <p>We use locally sourced ingredients, avoid preservatives whenever possible, and offer vegan-friendly dishes.</p>
                     <Link to="/order"><h4 className="mark">ORDER</h4></Link>
@@ -77,6 +77,10 @@ const OptionStyles = styled.div`
     justify-content: center;
     align-items: center;
     grid-template-rows: 1fr 2fr;
+
+    .daily {
+        color: #2b2d42;
+    }
 
     a {
         text-decoration: none;
@@ -185,8 +189,9 @@ const OptionStyles = styled.div`
         
     }
 
-    @media(max-width:500px)
+    @media(max-width:900px)
     {
+        text-align: center;
         .specials {
         grid-template-areas: 
         "hero "
@@ -205,14 +210,3 @@ const OptionStyles = styled.div`
 
 export default Options
 
-/*
-<div className="specials"><p>Woah</p></div>
-            <div className="options">
-                <ul>
-                    <li>taco</li>
-                    <li>taco</li>
-                    <li>taco</li>
-                </ul>
-            </div>
-
-*/

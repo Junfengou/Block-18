@@ -19,7 +19,7 @@ function OrderItem({burger, addToOrder} ) {
                 <p>{formatMoney(burger.price)}</p>
             </div>
 
-            <div className="price">
+            <div className="button__container">
                 <button type="button" onClick={() => addToOrder(burger)}>Add to cart</button>
             </div>
         </BurgerItemStyles>

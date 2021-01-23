@@ -9,17 +9,11 @@ function Home() {
                 <Block18 />
             </div>
 
-            {/* <nav>
-                <ul>
-                    <li>Menu</li>
-                    <li>About</li>
-                    <li>Location</li>
-                </ul>
-            </nav> */}
 
             <div className="moto">
-                <h3>The best burger joint in town!</h3>
+                <h3>The best <span className="burger">burger</span> joint in town!</h3>
                 <p>Come see us!</p>
+                <p><span className="week">M - F </span> | <span className="day"> 6 PM - 11 PM</span></p>
             </div>
         </Wrapper>
     )
@@ -28,23 +22,34 @@ function Home() {
 const Wrapper = styled.div`
     --lightblack: rgb(32, 33, 38);
     height: 100vh;
-    /* width: 100vw; */
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     grid-template-rows: repeat(3, minmax(100px, 1fr));
     background: var(--lightblack);
-    /* background-size: cover; */
     background-position: top;
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
     justify-content: center;
     align-content: center;
+    
+    .burger{
+        color: var(--red);
+    }
+
+    .week {
+        color: #6186BD;
+        
+    }
+
+    .day {
+        color: #a18cd1
+    }
+
     .logo {
         grid-row: 2/ -2;
         justify-self: center;
-        /* margin-right: 10rem; */
         align-self: center;
-        
+        text-align: center;
     }
 
 
@@ -57,42 +62,6 @@ const Wrapper = styled.div`
         text-align: center;
         font-size: clamp(20px, 5vw, 28px);
    }
-    /* nav {
-        grid-row: 2 / -3;
-        justify-self: center;
-        align-self: center;
-        color: white;
-        font-size: 3rem;
-        ul {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(3, minmax(100px, 120px));
-            list-style: none;
-            justify-content: center;
-        }
-
-        li {
-            text-decoration: none;
-        }
-
-        li:nth-child(1)
-        {
-            display: grid;
-            justify-content: end;
-        }
-
-        li:nth-child(2)
-        {
-            display: grid;
-            justify-content: center;
-        }
-
-        li:nth-child(3)
-        {
-            display: grid;
-            justify-content: start;
-        }
-    } */
 
     @media(max-width: 800px)
     {
@@ -110,31 +79,12 @@ const Wrapper = styled.div`
             margin-top: 10rem;
         }
 
-        /* nav {
-            grid-row:  2/ -2;
+    }
 
-            ul {
-                gap: 0px;
-            }
-            
-            li:nth-child(1)
-            {
-                display: grid;
-                justify-content: start;
-            }
-
-            li:nth-child(2)
-            {
-                display: grid;
-                justify-content: start;
-            }
-
-            li:nth-child(3)
-            {
-                display: grid;
-                justify-content: start;
-            }
-        } */
+    @media(max-width: 550px) {
+        .moto {
+            font-size: 2rem;
+        }
     }
 `
 

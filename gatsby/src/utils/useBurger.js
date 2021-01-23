@@ -4,6 +4,8 @@ import attachNamesAndPrice from "./attachNamesAndPrice"
 import calculateOrderTotal from "./calculateOrderTotal"
 import formatMoney from "./formatMoney"
 
+import getStripe from "../utils/stripe"
+
 function useBurger ({ burgers, values }){
     const [order, setOrder] = useContext(BurgerContext);
     const [loading, setLoading] = useState(false);
@@ -28,9 +30,10 @@ function useBurger ({ burgers, values }){
         setLoading(true);
         setMessage(null);
 
+        const totalPrice = formatMoney(calculateOrderTotal(order));
         const body = {
             order: attachNamesAndPrice(order, burgers),
-            total: formatMoney(calculateOrderTotal(order)),
+            total: totalPrice,
             name: values.name,
             email: values.email,
         }
@@ -61,3 +64,28 @@ function useBurger ({ burgers, values }){
 }
 
 export default useBurger
+
+
+/*
+
+const totalPrice = formatMoney(calculateOrderTotal(order));
+        const stripe = await getStripe();
+
+       const { error } = await stripe.redirectToCheckout({
+            mode: "payment",
+            lineItems: [{ price: totalPrice, quantity: 1 }],
+            successUrl: `${window.location.origin}/page-2/`,
+            cancelUrl: `${window.location.origin}/advanced`,
+        })
+
+        if(error)
+        {
+            console.warn("Error", error);
+            setLoading(false)
+        }
+
+
+
+
+
+*/

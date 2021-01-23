@@ -24,7 +24,6 @@ const PizzaStyles = styled.div`
 	grid-row: span 1;
 	gap: 1rem;
 	margin-top: 3rem;
-	/* border: solid 2px var(--lightblack);s */
 
 	.description {
 		justify-self: center;
@@ -41,6 +40,8 @@ const PizzaStyles = styled.div`
 	hr {
 		width: 40%;
 	}
+
+	
 `;
 
 export default Menu;

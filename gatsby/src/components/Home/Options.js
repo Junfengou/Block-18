@@ -2,6 +2,7 @@ import React from 'react'
 import Norris from "../../images/norris.png"
 import Img from "gatsby-image"
 import styled from "styled-components";
+import { Link } from "gatsby"
 
 function Options({burgers}) {
     const burger = burgers.nodes[0].image.asset.fluid;
@@ -12,9 +13,8 @@ function Options({burgers}) {
             <div className="wrapper">
             <div className="specials">
                 <div className="specials_picture">
-                    <img src={Norris} alt="mahi" />
-                    {/* <Img fluid={burger.image.asset.fluid} alt="burger" /> */}
-                    {/* <Img fluid={burger} alt="burger"/> */}
+                    <img src={Norris} alt="Norris" />
+
                 </div>
 
                 <div className="specials__tag">
@@ -36,7 +36,7 @@ function Options({burgers}) {
                         <h4>served daily</h4>
                     </div>
                     <p>Things get hoppin' around lunchtime. We suggest checking out our menu before you come in.</p>
-                    <h4>SEE MENU</h4>
+                    <Link to="/menu"><h4 className="mark">SEE MENU</h4></Link>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@ function Options({burgers}) {
                         <h4>your sleeves</h4>
                     </div>
                     <p>Our street-style food is bold, imaginative, and deliciously messy. Grab some napkins and eat up.</p>
-                    <h4>SEE LOCATION</h4>
+                    <Link to="/about"><h4 className="mark">ABOUT US</h4></Link>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@ function Options({burgers}) {
                         <h4>local food</h4>
                     </div>
                     <p>We use locally sourced ingredients, avoid preservatives whenever possible, and offer vegan-friendly dishes.</p>
-                    <h4>ABOUT US</h4>
+                    <Link to="/order"><h4 className="mark">ORDER</h4></Link>
                 </div>
             </div>
 
@@ -77,6 +77,10 @@ const OptionStyles = styled.div`
     justify-content: center;
     align-items: center;
     grid-template-rows: 1fr 2fr;
+
+    a {
+        text-decoration: none;
+    }
 
     .wrapper {
         display: grid;
@@ -103,8 +107,9 @@ const OptionStyles = styled.div`
         grid-template-columns: repeat(auto-fit, minmax(100px, 200px 1fr));
         grid-template-rows: repeat(auto-fit, minmax(100px, 1fr 100px));
         margin-bottom: 2rem;
-        background: white;
         padding: 2rem;
+        background: white;
+
         
         .specials_picture{
             grid-area: hero;
@@ -140,9 +145,11 @@ const OptionStyles = styled.div`
             justify-items: center;
             align-items: center;
             list-style: none;
+            
 
         .cardZero {
             grid-area: card0;
+            
         }
 
         .cardOne {
@@ -162,6 +169,7 @@ const OptionStyles = styled.div`
             justify-items: center;
             align-items: center;
             background: white;
+            
 
             p {
                 font-size: clamp(12px, 5vw, 18px);

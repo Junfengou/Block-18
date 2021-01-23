@@ -6,6 +6,7 @@ import BurgerItemStyles from "../../styles/BurgerItemStyles"
 
 
 function OrderItem({burger, addToOrder} ) {
+    // console.log(burger)
     return (
         <BurgerItemStyles>
 
@@ -19,7 +20,7 @@ function OrderItem({burger, addToOrder} ) {
             </div>
 
             <div className="price">
-                <button type="button" onClick={() => addToOrder({id: burger._id, price: burger.price})}>Add to cart</button>
+                <button type="button" onClick={() => addToOrder(burger)}>Add to cart</button>
             </div>
         </BurgerItemStyles>
     )

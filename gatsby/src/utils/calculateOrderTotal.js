@@ -1,7 +1,7 @@
 
 
 // take a array of order and reduce down to a single number
-function calculateOrderTotal( order, burgers ) {
+function calculateOrderTotal( order ) {
     // loop over each items in the order
     
     const total = order.reduce((runningTotal, singleOrder) => {

@@ -43,6 +43,10 @@ const SubmitOrderStyles = styled.div`
 	h3 {
 		margin-right: 3rem;
 	}
+
+	.orderButton {
+		margin-left: 2rem;
+	}
 `;
 
 function order({ data }) {
@@ -52,14 +56,19 @@ function order({ data }) {
 		email: "",
 	});
 
-	const { order, addToOrder, removeOrder } = useBurger({
+	const { order, addToOrder, removeOrder, submitOrderForm, error, loading, message } = useBurger({
 		burgers,
 		values: values,
 	});
 
+	if(message)
+	{
+		return(<p>{message}</p>)
+	}
+
 	return (
-		<form>
-			<fieldset>
+		<form onSubmit={submitOrderForm}>
+			<fieldset disabled={loading}>
 				<legend className="mark">Customer information</legend>
 				<CustomerInfoStyles>
 					<label htmlFor="name">name</label>
@@ -83,36 +92,38 @@ function order({ data }) {
 			</fieldset>
 
 			<OrderStyles>
-				<fieldset>
+				<fieldset disabled={loading}>
 					<legend className="mark">Menu orders</legend>
 					<OrderItemStyles>
-						{burgers.map((burger) => (
-							<div key={`burger - ${burger._id}`}>
+						{burgers.map((burger, index) => (
+							<div key={`burger - ${index}`}>
 								<OrderItem burger={burger} addToOrder={addToOrder} />
 							</div>
 						))}
 					</OrderItemStyles>
 				</fieldset>
 
-				<fieldset>
+				<fieldset disabled={loading}>
 					<legend className="mark">Cart</legend>
 					<OrderItemStyles>
 						<BurgerCartItem
 							order={order}
-							burgers={burgers}
 							removeOrder={removeOrder}
 						/>
 					</OrderItemStyles>
 				</fieldset>
 			</OrderStyles>
 
-			<fieldset>
+			<fieldset disabled={loading}>
 				<legend className="mark">Total</legend>
 				<SubmitOrderStyles>
 					<h3>
-						Your total is: {formatMoney(calculateOrderTotal(order, burgers))}
+						Your total is: {formatMoney(calculateOrderTotal(order))}
 					</h3>
-					<button type="submit">Add to order</button>
+					<div>
+                    	{error ? <p>{error}</p> : ''}
+                	</div>
+					<button className="orderButton" type="submit">{loading ? "Adding order..." : "Place an order!"}</button>
 				</SubmitOrderStyles>
 			</fieldset>
 		</form>

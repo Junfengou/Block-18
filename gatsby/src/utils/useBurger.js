@@ -36,17 +36,22 @@ function useBurger({ burgers, values }) {
         const requiredFields = ["email", "name", "order"];
 
         for (const field of requiredFields) {
-            
 
-            if (!body[field] && body.order.length) {
+            if (!body[field] && !body.order.length) {
+                setLoading(false);
+                setError(`Are you gonna order or what? What are you waiting for?`)
+            }
+
+            else if (!body[field] && body.order.length) {
                 setLoading(false);
                 setError(`Name and email field cannot be empty`)
             }
 
-            if (body[field] && !body.order.length) {
+            else if (body[field] && !body.order.length) {
                 setLoading(false);
                 setError("Why would you order nothing?")
             }
+
 
             else {
                 setLoading(false);

@@ -1,12 +1,14 @@
-import React from 'react'
-import Bio from "../components/About/Bio"
+import React from "react";
+import Bio from "../components/About/Bio";
+import SEO from "../components/SEO";
 
 function about() {
-    return (
-        <div>
-            <Bio />
-        </div>
-    )
+	return (
+		<>
+			<SEO title="About the founder" />
+			<Bio />
+		</>
+	);
 }
 
-export default about
+export default about;

@@ -8,7 +8,7 @@ import useBurger from "../utils/useBurger";
 import BurgerCartItem from "../components/Order/BurgerCartItem";
 import formatMoney from "../utils/formatMoney";
 import calculateOrderTotal from "../utils/calculateOrderTotal";
-
+import SEO from "../components/SEO";
 import OrderMessage from "../components/Order/OrderMessage";
 const OrderItemStyles = styled.div`
 	/* border: solid red; */
@@ -94,7 +94,7 @@ function order({ data }) {
 		values: values,
 	});
 
-	if (message && values.name) {
+	if (message && values.name && values.email) {
 		return (
 			<OrderMessage
 				message={message}
@@ -105,73 +105,76 @@ function order({ data }) {
 	}
 
 	return (
-		<form onSubmit={submitOrderForm}>
-			<CustomerFormStyles>
+		<>
+			<SEO title="Order your burger" />
+			<form onSubmit={submitOrderForm}>
+				<CustomerFormStyles>
+					<fieldset disabled={loading}>
+						<legend className="mark">Customer information</legend>
+						<div className="inputForm">
+							<label htmlFor="name">name</label>
+							<input
+								type="text"
+								name="name"
+								id="name"
+								value={values.name}
+								onChange={updateValue}
+							/>
+
+							<label htmlFor="email">email</label>
+							<input
+								type="text"
+								name="email"
+								id="email"
+								value={values.email}
+								onChange={updateValue}
+							/>
+
+							{/* This is honey pot. A trap built for robots. The field is only visible to bots via css so nothing to worry about */}
+							<input
+								type="mapleSyrup"
+								className="mapleSyrup"
+								name="mapleSyrup"
+								id="mapleSyrup"
+								value={values.mapleSyrup}
+								onChange={updateValue}
+							/>
+						</div>
+					</fieldset>
+				</CustomerFormStyles>
+
+				<OrderStyles>
+					<fieldset disabled={loading}>
+						<legend className="mark">Menu orders</legend>
+						<OrderItemStyles>
+							{burgers.map((burger, index) => (
+								<div key={`burger - ${index}`}>
+									<OrderItem burger={burger} addToOrder={addToOrder} />
+								</div>
+							))}
+						</OrderItemStyles>
+					</fieldset>
+
+					<fieldset disabled={loading}>
+						<legend className="mark">Cart</legend>
+						<OrderItemStyles>
+							<BurgerCartItem order={order} removeOrder={removeOrder} />
+						</OrderItemStyles>
+					</fieldset>
+				</OrderStyles>
+
 				<fieldset disabled={loading}>
-					<legend className="mark">Customer information</legend>
-					<div className="inputForm">
-						<label htmlFor="name">name</label>
-						<input
-							type="text"
-							name="name"
-							id="name"
-							value={values.name}
-							onChange={updateValue}
-						/>
-
-						<label htmlFor="email">email</label>
-						<input
-							type="text"
-							name="email"
-							id="email"
-							value={values.email}
-							onChange={updateValue}
-						/>
-
-						{/* This is honey pot. A trap built for robots. The field is only visible to bots via css so nothing to worry about */}
-						<input
-							type="mapleSyrup"
-							className="mapleSyrup"
-							name="mapleSyrup"
-							id="mapleSyrup"
-							value={values.mapleSyrup}
-							onChange={updateValue}
-						/>
-					</div>
+					<legend className="mark">Total</legend>
+					<SubmitOrderStyles>
+						<h3>Your total is: {formatMoney(calculateOrderTotal(order))}</h3>
+						<div>{error ? <p>{error}</p> : ""}</div>
+						<button className="orderButton" type="submit">
+							{loading ? "Adding order..." : "Place an order!"}
+						</button>
+					</SubmitOrderStyles>
 				</fieldset>
-			</CustomerFormStyles>
-
-			<OrderStyles>
-				<fieldset disabled={loading}>
-					<legend className="mark">Menu orders</legend>
-					<OrderItemStyles>
-						{burgers.map((burger, index) => (
-							<div key={`burger - ${index}`}>
-								<OrderItem burger={burger} addToOrder={addToOrder} />
-							</div>
-						))}
-					</OrderItemStyles>
-				</fieldset>
-
-				<fieldset disabled={loading}>
-					<legend className="mark">Cart</legend>
-					<OrderItemStyles>
-						<BurgerCartItem order={order} removeOrder={removeOrder} />
-					</OrderItemStyles>
-				</fieldset>
-			</OrderStyles>
-
-			<fieldset disabled={loading}>
-				<legend className="mark">Total</legend>
-				<SubmitOrderStyles>
-					<h3>Your total is: {formatMoney(calculateOrderTotal(order))}</h3>
-					<div>{error ? <p>{error}</p> : ""}</div>
-					<button className="orderButton" type="submit">
-						{loading ? "Adding order..." : "Place an order!"}
-					</button>
-				</SubmitOrderStyles>
-			</fieldset>
-		</form>
+			</form>
+		</>
 	);
 }
 

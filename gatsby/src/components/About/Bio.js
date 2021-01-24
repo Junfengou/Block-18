@@ -5,16 +5,13 @@ import History from "./History"
 
 function Bio() {
     return (
-        <BioStyles>
+        <>
             <Banner />
             <History />
-        </BioStyles>
+        </>
     )
 }
 
-const BioStyles = styled.div`
-    
-`
 
 export default Bio
 

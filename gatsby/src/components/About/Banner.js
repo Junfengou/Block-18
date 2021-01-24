@@ -45,13 +45,13 @@ const BannerStyle = styled.div`
 
     .box {
         /* border: solid red; */
-        margin-left: 15rem;
+        margin-left: 10rem;
     }
 
     h1 {
         position: relative;
         font-size: 4rem;
-        text-align: center;
+        
     }
 
     p {
@@ -60,10 +60,31 @@ const BannerStyle = styled.div`
         text-align: center;
     }
 
+    @media(max-width:1200px)
+    {
+        .box {
+            margin-left: 6rem;
+        }
 
-    /* background: url(${bioPic}) no-repeat center center; */
-    /* object-fit: contain; */
+        h1 {
+            font-size: 3rem;
+        }
+    }
 
+    @media(max-width:500px)
+    {
+        .box {
+            margin-left: 5.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.7rem;
+        }
+    }
     
 `
 

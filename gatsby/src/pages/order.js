@@ -54,6 +54,18 @@ const SubmitOrderStyles = styled.div`
 	.orderButton {
 		margin-left: 2rem;
 	}
+
+	@media(max-width: 515px) {
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		button {
+			height: 3.8rem;
+			width: 10rem;
+			font-size: 1.3rem;
+		}
+	}
 `;
 
 function order({ data }) {

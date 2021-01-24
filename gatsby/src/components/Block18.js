@@ -134,11 +134,11 @@ const LogoStyles = styled.div`
         }
 
         .est {
-        font-size: 1.7rem;
-        /* margin-left: 15rem; */
-        margin-left: 5rem;
-        color: white;
-        align-self: center;
+            font-size: 1.7rem;
+            /* margin-left: 15rem; */
+            margin-left: 5rem;
+            color: white;
+            align-self: center;
         }
     }
     

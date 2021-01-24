@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
-import Norris from "../../images/bike.png"
+import bike from "../../images/bike.png"
 
 function History() {
     return (
@@ -15,8 +15,8 @@ function History() {
                     and it all shows up in the food we serve.</p>
             </div>
 
-            <div className="bird">
-                <img src={Norris} alt="norris" />
+            <div className="bike">
+                <img src={bike} alt="bike" />
                 <h5>WE NEVER TAKE OURSELVES TOO <span className="highlight">SERIOUSLY</span>. </h5>
             </div>
 
@@ -58,12 +58,64 @@ const HistoryStyles = styled.div`
 
         }
 
-        .bird {
+        .bike {
             /* border: solid pink; */
             display: grid;
             grid-template-columns: 350px;
             grid-template-rows: 350px;
 
+            
+        }
+
+        @media(max-width: 900px)
+        {
+            .w {
+                font-size: 9rem;
+            }
+
+            .history {
+                font-size: 1.8rem;
+            }
+
+            .bike {
+                grid-template-columns: 300px;
+                grid-template-rows: 300px;
+            }
+            
+        }
+
+        @media(max-width: 500px)
+        {
+            .w {
+                font-size: 8rem;
+            }
+
+            .history {
+                font-size: 1.7rem;
+            }
+
+            .bike {
+                grid-template-columns: 280px;
+                grid-template-rows: 280px;
+            }
+            
+        }
+        
+
+        @media(max-width: 400px)
+        {
+            .w {
+                font-size: 7rem;
+            }
+
+            .history {
+                font-size: 1.5rem;
+            }
+
+            .bike {
+                grid-template-columns: 250px;
+                grid-template-rows: 250px;
+            }
             
         }
 `

@@ -230,7 +230,7 @@ const OptionStyles = styled.div`
         
     }
 
-    @media(max-width:900px)
+    @media(max-width: 850px)
     {
         text-align: center;
         .specials {
@@ -245,6 +245,24 @@ const OptionStyles = styled.div`
             "card0 " 
             "card1" 
             "card2";
+        }
+
+        .specials {
+            font-size: 1.9rem;
+        }
+
+        .card {
+            font-size: 1.9rem;
+        }
+    }
+
+    @media(max-width: 500px){
+        .specials {
+            font-size: 1.7rem;
+        }
+
+        .card {
+            font-size: 1.7rem;
         }
     }
 `

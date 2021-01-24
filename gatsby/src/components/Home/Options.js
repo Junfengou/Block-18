@@ -161,6 +161,7 @@ const OptionStyles = styled.div`
 		justify-items: center;
 		align-items: center;
 		list-style: none;
+		padding: 3rem;
 
 		.cardZero {
 			grid-area: card0;

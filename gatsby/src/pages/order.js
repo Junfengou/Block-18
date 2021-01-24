@@ -9,6 +9,7 @@ import BurgerCartItem from "../components/Order/BurgerCartItem";
 import formatMoney from "../utils/formatMoney";
 import calculateOrderTotal from "../utils/calculateOrderTotal";
 
+import OrderMessage from "../components/Order/OrderMessage";
 const OrderItemStyles = styled.div`
 	/* border: solid red; */
 	display: grid;
@@ -20,12 +21,12 @@ const OrderItemStyles = styled.div`
 	margin-top: 2rem;
 	overflow: auto;
 
-	@media(max-width: 700px) {
+	@media (max-width: 700px) {
 		grid-auto-rows: 170px 1fr;
 		overflow: auto;
 	}
 
-	@media(max-width: 470px) {
+	@media (max-width: 470px) {
 		grid-auto-rows: 125px 1fr;
 		overflow: auto;
 	}
@@ -40,7 +41,11 @@ const CustomerFormStyles = styled.div`
 		display: grid;
 		justify-self: center;
 	}
-`
+
+	.mapleSyrup {
+		display: none;
+	}
+`;
 
 const SubmitOrderStyles = styled.div`
 	display: flex;
@@ -55,7 +60,7 @@ const SubmitOrderStyles = styled.div`
 		margin-left: 2rem;
 	}
 
-	@media(max-width: 515px) {
+	@media (max-width: 515px) {
 		h3 {
 			font-size: 1.5rem;
 		}
@@ -73,43 +78,67 @@ function order({ data }) {
 	const { values, updateValue } = useForm({
 		name: "",
 		email: "",
+		mapleSyrup: "", //This is for bots lol
 	});
 
-	const { order, addToOrder, removeOrder, submitOrderForm, error, loading, message } = useBurger({
+	const {
+		order,
+		addToOrder,
+		removeOrder,
+		submitOrderForm,
+		error,
+		loading,
+		message,
+	} = useBurger({
 		burgers,
 		values: values,
 	});
 
-	if(message)
-	{
-		return(<p>{message}</p>)
+	if (message && values.name) {
+		return (
+			<OrderMessage
+				message={message}
+				name={values.name}
+				price={formatMoney(calculateOrderTotal(order))}
+			/>
+		);
 	}
 
 	return (
 		<form onSubmit={submitOrderForm}>
 			<CustomerFormStyles>
-			<fieldset disabled={loading}>
-				<legend className="mark">Customer information</legend>
-				<div className="inputForm">
-					<label htmlFor="name">name</label>
-					<input
-						type="text"
-						name="name"
-						id="name"
-						value={values.name}
-						onChange={updateValue}
-					/>
+				<fieldset disabled={loading}>
+					<legend className="mark">Customer information</legend>
+					<div className="inputForm">
+						<label htmlFor="name">name</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							value={values.name}
+							onChange={updateValue}
+						/>
 
-					<label htmlFor="email">email</label>
-					<input
-						type="text"
-						name="email"
-						id="email"
-						value={values.email}
-						onChange={updateValue}
-					/>
+						<label htmlFor="email">email</label>
+						<input
+							type="text"
+							name="email"
+							id="email"
+							value={values.email}
+							onChange={updateValue}
+						/>
+
+						{/* This is honey pot. A trap built for robots. The field is only visible to bots via css so nothing to worry about */}
+						<input
+							type="mapleSyrup"
+							className="mapleSyrup"
+							name="mapleSyrup"
+							id="mapleSyrup"
+							value={values.mapleSyrup}
+							onChange={updateValue}
+						/>
 					</div>
-			</fieldset>
+				</fieldset>
 			</CustomerFormStyles>
 
 			<OrderStyles>
@@ -127,10 +156,7 @@ function order({ data }) {
 				<fieldset disabled={loading}>
 					<legend className="mark">Cart</legend>
 					<OrderItemStyles>
-						<BurgerCartItem
-							order={order}
-							removeOrder={removeOrder}
-						/>
+						<BurgerCartItem order={order} removeOrder={removeOrder} />
 					</OrderItemStyles>
 				</fieldset>
 			</OrderStyles>
@@ -138,13 +164,11 @@ function order({ data }) {
 			<fieldset disabled={loading}>
 				<legend className="mark">Total</legend>
 				<SubmitOrderStyles>
-					<h3>
-						Your total is: {formatMoney(calculateOrderTotal(order))}
-					</h3>
-					<div>
-                    	{error ? <p>{error}</p> : ''}
-                	</div>
-					<button className="orderButton" type="submit">{loading ? "Adding order..." : "Place an order!"}</button>
+					<h3>Your total is: {formatMoney(calculateOrderTotal(order))}</h3>
+					<div>{error ? <p>{error}</p> : ""}</div>
+					<button className="orderButton" type="submit">
+						{loading ? "Adding order..." : "Place an order!"}
+					</button>
 				</SubmitOrderStyles>
 			</fieldset>
 		</form>

@@ -200,7 +200,14 @@ const NavStyles = styled.nav`
 		display: none;
 	}
 
-	@media screen and (max-width: 960px) {
+	@media screen and (max-width: 950px) {
+		.letter {
+			font-size: 1.1em;
+		}
+
+	}
+
+	@media screen and (max-width: 755px) {
 		.letter {
 			font-size: 1em;
 		}
@@ -210,10 +217,10 @@ const NavStyles = styled.nav`
 			flex-direction: column;
 			justify-content: center;
 			align-self: center;
-			width: 100%;
+			width: 93%;
 			height: 90vh;
 			position: absolute;
-			top: 50px;
+			top: 60px;
 			left: -100%;
 			opacity: 1;
 			transition: all 0.5s ease;
@@ -256,9 +263,6 @@ const NavStyles = styled.nav`
 				color: white;
 				font-size: 4rem;
 			}
-		}
-
-		.nav-links-mobile {
 		}
 	}
 `;

@@ -1,26 +1,25 @@
-import React from 'react'
-import GlobalStyles from "../styles/GlobalStyles"
-import Typography from "../styles/Typography"
-import styled from "styled-components"
+import React from "react";
+import GlobalStyles from "../styles/GlobalStyles";
+import Typography from "../styles/Typography";
+import styled from "styled-components";
 import bg from "../assets/images/bg.svg";
 import stripes from "../assets/images/stripes.svg";
-import Nav from "./Nav"
-import "normalize.css"; 
+import Nav from "./Nav";
+import "normalize.css";
 
-function Layout({children}) {
-    return (
-        <>
-            <GlobalStyles />
-            <Typography />
+function Layout({ children }) {
+	return (
+		<>
+			<GlobalStyles />
+			<Typography />
 			<SiteBorderStyles>
 				<ContentStyles>
 					<Nav />
 					{children}
 				</ContentStyles>
 			</SiteBorderStyles>
-			
-        </>
-    )
+		</>
+	);
 }
 
 const ContentStyles = styled.div`
@@ -41,15 +40,15 @@ const SiteBorderStyles = styled.div`
 	box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
 	border: 5px solid white;
 
-
 	@media (max-width: 1100px) {
 		margin-left: 1.5rem;
 		margin-right: 1.5rem;
 	}
 `;
 
-export default Layout
-{/** 
+export default Layout;
+{
+	/** 
 max-width: 1800px;
 	max-height: 3000px;
 	margin: 12rem auto 4rem auto; // top, auto, bottom, auto on left + right
@@ -61,4 +60,5 @@ max-width: 1800px;
 	border: 5px solid white;
 
 
-*/}
+*/
+}

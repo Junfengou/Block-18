@@ -23,10 +23,38 @@ function useBurger({ burgers, values }) {
 	async function submitOrderForm(e) {
 		e.preventDefault();
 		setLoading(true);
-		setMessage(null);
+        setMessage(null);
+        
+        const totalPrice = formatMoney(calculateOrderTotal(order))
+        const body = {
+            order: attachNamesAndPrice(order, burgers),
+            total: totalPrice,
+            name: values.name,
+            email: values.email,
+        }
 
-		setLoading(false);
-		setMessage("Your order was successfully placed!");
+        const requiredFields = ["email", "name", "order"];
+
+        for (const field of requiredFields) {
+            
+
+            if (!body[field] && body.order.length) {
+                setLoading(false);
+                setError(`Name and email field cannot be empty`)
+            }
+
+            if (body[field] && !body.order.length) {
+                setLoading(false);
+                setError("Why would you order nothing?")
+            }
+
+            else {
+                setLoading(false);
+                setMessage("Success! Thank you for ordering from Block18 official website!");
+            }
+        }
+
+
 	}
 	return {
 		order,
